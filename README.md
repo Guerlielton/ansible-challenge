@@ -25,12 +25,14 @@ pip3 install requests google-auth
 ```
 
 google-auth requred for work modules ansible gcp
+
 pip3 resquest, required for work dynamic inventory with ansible gcp
 
 **Basic Ansible Configuration**
 
 My directory ansible is located at cd /etc/ansible
 edit the ansible.cfg using the text editor you prefer.
+
 My values
 
 ```
