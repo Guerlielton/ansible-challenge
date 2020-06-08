@@ -1,5 +1,5 @@
 ---
-- hosts: webserver
+- hosts: web-server
   gather_facts: no
   # Become define scale privileges root
   become: yes
@@ -11,4 +11,5 @@
       shell: docker pull guerlielton/devops-challenge
 
     - name: Docker Run Container
+      #Port 80 the host docker and port 3000 the docker container.
       shell: docker run -p 80:3000 -d guerlielton/devops-challenge
