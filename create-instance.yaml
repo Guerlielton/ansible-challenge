@@ -3,14 +3,20 @@
   hosts: localhost
   gather_facts: no
   vars:
-    gcp_project: tensile-imprint-271321
+    # Id your project
+    gcp_project: ansible-test
     gcp_cred_kind: serviceaccount
-    gcp_cred_file: /home/guerlielton/credentials/gcp/credential.json
+    # Path the  private key credential download  the from the GCP.
+    gcp_cred_file: /home/user/credentials/gcp/credential.json
+    # Zone your for create instance.
     zone: "us-central1-a"
+    # Region your for create instance.
     region: "us-central1"
+    # Variable with name the instance.
     name_instance: web-server
+
   tasks:
-    - name: Create a disk
+    - name: Create a disk {{ name_instance }}
       gcp_compute_disk:
         name: "{{ name_instance }}"
         size_gb: 10
@@ -24,7 +30,7 @@
         state: present
       register: disk
 
-    - name: Create a VPC network
+    - name: Create a VPC network {{ name_instance }}
       gcp_compute_network:
         name: "default"
         auto_create_subnetworks: "true"
@@ -36,7 +42,7 @@
         state: present
       register: network
 
-    - name: Create a firewall
+    - name: Create a firewall {{ name_instance }}
       gcp_compute_firewall:
         name: "{{ name_instance }}"
         network: "{{ network }}"
@@ -53,7 +59,7 @@
         state: present
       register: firewall
 
-    - name: Create an IPv4 Public IP address
+    - name: Create an IPv4 Public IP address {{ name_instance }}
       gcp_compute_address:
         name: "{{ name_instance }}"
         address_type: "EXTERNAL"
@@ -67,7 +73,7 @@
         state: present
       register: address
 
-    - name: Create a instance Web Server
+    - name: Create a instance {{ name_instance }}
       gcp_compute_instance:
         state: present
         name: "{{ name_instance }}"
@@ -88,15 +94,15 @@
         service_account_file: "{{ gcp_cred_file }}"
         scopes:
           - https://www.googleapis.com/auth/compute
-        # Network tag for traffic inbound exclusive instance
+        # Network tag for exclusive traffic inbound the instance with tag wer-server
         tags:
           items:
             - web-server
       register: instance
-
-    - name: Show Details Instance
+      # This is important in output command for create inventory host.
+    - name: Show Details Instance {{ name_instance }}
       debug:
         msg: "The instance is accessible at {{ address.address }}"
-
-    - name: Wait for SSH to come up.
+      # This is step wait ssh after install the instance.
+    - name: Wait for SSH to come up. {{ name_instance }}
       wait_for: host={{ address.address }} port=22 delay=10 timeout=60
