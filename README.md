@@ -57,7 +57,7 @@ inventory = /etc/ansible/hosts
 
 ```
 
-**I user sudo -s in next Step**
+**I used the sudo -s in the next steps**
 
 **Run Fist Playbook**
 
