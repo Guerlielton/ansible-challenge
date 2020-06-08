@@ -33,8 +33,9 @@ Your need install two extras package important in next step.
 pip3 install requests google-auth
 ```
 
-*google-auth required for work modules ansible gcp
-*pip3 resquest, required for work dynamic inventory with ansible gcp
+-google-auth required for work modules ansible gcp
+
+-pip3 resquest, required for work dynamic inventory with ansible gcp
 
 **Basic Ansible Configuration**
 
