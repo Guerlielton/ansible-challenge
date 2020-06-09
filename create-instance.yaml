@@ -48,6 +48,7 @@
         network: "{{ network }}"
         allowed:
           - ip_protocol: tcp
+            # Important is port 80 open it will make the link between the instance and docker container.
             ports: ["80"]
         # Firewall tag for match tag instance
         target_tags:
