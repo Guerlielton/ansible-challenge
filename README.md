@@ -1,3 +1,8 @@
+**My reference guide**
+
+<https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu>
+<https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules.html>
+
 **Setup GCP**
 
 Create a new project
@@ -57,7 +62,7 @@ inventory = /etc/ansible/hosts
 
 ```
 
-**I used the sudo -s in the next steps**
+**I user sudo -s in next Step**
 
 **Run Fist Playbook**
 
@@ -76,11 +81,11 @@ cd /etc/ansible
 Run playbook
 
 ```
-# ansible-playbook create-instance.yaml
+# ansible-playbook create-instance
 
 ```
 
-Get ip address generated in output command playbook add ip in file hosts.
+Get ip address gereneted in output command playbook add ip in file hosts.
 
 ```
     - name: Show Details Instance
@@ -110,5 +115,13 @@ where pull image from docker hub and next run the container.
 
 ```
 # ansible-playbook install-docker.yaml
+
+```
+
+**Testing the application at the end**
+
+```
+curl [add you ip]
+Welcome To The Challenge Devops ! %
 
 ```
