@@ -111,7 +111,7 @@ Follow the previous step to create the file.
 ```
 
 This playbook install the docker with pre-defined, access ssh in step **Setup GCP**
-where pull image from docker hub and next run the container, my docker image contain node in version 10
+where pull image from docker hub and next run the container, my docker image contain node in version 10.
 
 ```
 # ansible-playbook install-docker.yaml
