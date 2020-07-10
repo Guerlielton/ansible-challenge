@@ -8,7 +8,7 @@
 Create a new project
 
 Add a new service account to the project on the IAM & admin => Service accounts tab. Click create add name service account,
-grant permission to the 'compute admin'
+grant permission to the 'compute admin'.
 
 Create a private key the service account,on the IAM & admin => Service accounts tab. Click in create key choose the Json key type, download the private key json file, add place it in safe location acessible with ansilbe in modules next step
 
